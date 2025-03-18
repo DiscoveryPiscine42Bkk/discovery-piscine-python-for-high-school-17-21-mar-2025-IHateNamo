@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 num_input=input("gimme a number: ")
 
 try:

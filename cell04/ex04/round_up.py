@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import math
 input_num = float (input("Gimme a number"))
 

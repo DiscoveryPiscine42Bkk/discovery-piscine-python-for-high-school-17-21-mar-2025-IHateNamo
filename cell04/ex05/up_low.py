@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 user_input =input("enter string")
 
 swapped_string = ""
@@ -8,5 +9,5 @@ for i in user_input:
         swapped_string += i.lower()
     else:
         swapped_string += i
-        
+
 print(swapped_string)

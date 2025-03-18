@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 Pos_num = int(input("input your number : "))
 
 if(Pos_num > 0):

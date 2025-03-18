@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 Zero = int(input('Your number  :'))
 
 if (Zero == 0):

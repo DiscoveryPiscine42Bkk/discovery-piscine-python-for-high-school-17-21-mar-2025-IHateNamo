@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 age_now = (int(input("Please tell me your age")))
 
 a = age_now + 10
