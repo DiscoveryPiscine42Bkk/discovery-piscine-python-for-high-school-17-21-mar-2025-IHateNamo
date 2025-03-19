@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-Pos_num = int(input("input your number : "))
+Pos_num = int(input(""))
 
 if(Pos_num > 0):
     print("This number is positive")
