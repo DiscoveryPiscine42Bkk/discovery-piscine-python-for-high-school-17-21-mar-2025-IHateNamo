@@ -19,7 +19,7 @@ def is_in_check(board, king_row, king_col):
     """Check if the King is in check by any piece."""
     
     # Check for Pawn attacks (only one step downward diagonally)
-    for dr, dc in [(1, -1), (1, 1)]:  # Only downward diagonals
+    for dr, dc in [(-1, -1), (-1, 1),(1, -1), (1, 1)]:  #  downward forward diagonals
         r, c = king_row + dr, king_col + dc
         if 0 <= r < len(board) and 0 <= c < len(board[0]) and board[r][c] == 'P':
             return True  # King is in check by a Pawn
@@ -53,13 +53,25 @@ def checkmate(board):
     if not is_valid:
         print(f"Error: Invalid character '{invalid_char}' found on board.")
         return
-    
-    king_pos = find_king(board)
-    if not king_pos:
-        print("Error: No King (K) found on the board.")
+
+    playable_pieces = {'P', 'B', 'R', 'Q'}
+    # Check if there any player piece (P B R Q) & separate the wall & floor
+    player_visible = any(any(piece in row for piece in playable_pieces) for row in board)
+    # Count the number of Kings on the board
+    king_count = sum(row.count('K') for row in board)
+    if king_count > 1:
+        print("Error: There are more than 1 King on the board.")
         return
-    
-    king_row, king_col = king_pos
+    elif king_count == 1 and not player_visible:
+        print("Error There are no Player here.")
+        return
+    elif king_count == 0:
+        print("Error: No King on the board.")
+        return
+
+
+    # Check if the King is in check
+    king_row, king_col = find_king(board)
 
     if is_in_check(board, king_row, king_col):
         print("Success")
